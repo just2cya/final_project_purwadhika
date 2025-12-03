@@ -1,0 +1,26 @@
+
+version: 2
+
+models:
+  - name: dim_users
+    description: "Dimensional table for users"
+    columns:
+      - name : user_pk
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        description: "The business key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: user_name
+        description: "The name of the user"
+      - name: user_email
+        description: "The email of the user"
+        tests:
+          - unique
+          - not_null
+      - name: created_date
+        description: "The created date of the user"

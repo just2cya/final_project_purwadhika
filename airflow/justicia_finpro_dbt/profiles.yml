@@ -1,0 +1,14 @@
+justicia_finpro_dbt:
+  outputs:
+    dev:
+      dataset: justicia_finpro
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: /opt/airflow/gcp-credentials/gcp-key.json
+      location: asia-southeast2
+      method: service-account
+      priority: interactive
+      project: jcdeah-006
+      threads: 8
+      type: bigquery
+  target: dev

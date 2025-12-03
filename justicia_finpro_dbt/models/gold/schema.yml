@@ -1,0 +1,8 @@
+sources:
+  - name: justicia_finpro_raw
+    database: capstoneprojectpurwadhika
+    schema: justicia_finpro
+    tables:
+      - name: raw_users
+      - name: raw_products
+      - name: raw_orders

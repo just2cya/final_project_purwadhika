@@ -1,0 +1,17 @@
+version: '3.8' # Specify the Docker Compose file format version
+
+services:
+  postgres: # Define a service named 'postgres'
+    image: postgres:15 # Use the official PostgreSQL image from Docker Hub, version 15
+    environment: # Set environment variables for the PostgreSQL container
+      POSTGRES_DB: ecommerce # The name of the database to create
+      POSTGRES_USER: myuser # The username for the database
+      POSTGRES_PASSWORD: mypassword # The password for the database user
+    volumes: # Define volumes for data persistence
+      - postgres_data:/var/lib/postgresql/data # Mount a named volume to the data directory inside the container
+    ports: # Map ports from the host to the container
+      - "5434:5432" # Map host port 5432 to container port 5432 (default PostgreSQL port)
+    restart: always # Ensure the container restarts automatically if it stops
+
+volumes:
+  postgres_data: # Define the named volume for PostgreSQL data

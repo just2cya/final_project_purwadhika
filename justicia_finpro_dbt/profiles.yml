@@ -1,0 +1,14 @@
+justicia_finpro_dbt:
+  outputs:
+    dev:
+      dataset: justicia_finpro
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: /home/up_2_me2001/final_project/airflow/gcp-credentials/gcp-keyjj.json
+      location: asia-southeast2
+      method: service-account
+      priority: interactive
+      project: capstoneprojectpurwadhika
+      threads: 8
+      type: bigquery
+  target: dev

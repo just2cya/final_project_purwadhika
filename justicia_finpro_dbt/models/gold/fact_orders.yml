@@ -1,0 +1,47 @@
+
+version: 2
+
+models:
+  - name: fact_orders
+    description: "Fact table for orders"
+    columns:
+      - name : order_pk
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: "The business key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: user_pk
+        description: "Foreign key to dim_users table"
+        tests:
+          - not_null
+      - name: product_pk
+        description: "Foreign key to dim_products table"
+        tests:
+          - not_null
+      - name: quantity
+        description: "The quantity of the order"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "quantity > 0"
+              config:
+                severity: warn
+      - name: amount
+        description: "The amount of the order"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "amount > 0"
+              config:
+                severity: warn
+      - name : country
+        description: "The country of the order"
+        tests:
+          - not_null
+      - name: created_date
+        description: "The created date of the order"

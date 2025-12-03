@@ -1,0 +1,26 @@
+# Ignore build artifacts
+/build/
+*.o
+*.a
+gcp-key*.json
+
+# Ignore temporary files
+*.tmp
+*.log
+
+# Ignore IDE-specific files
+.idea/
+.vscode/
+
+# Ignore sensitive configuration files
+config.local.js
+.env
+
+gcp-credentials/
+logs/
+plugins/
+venv/
+__pycache__/
+.dbt/
+
+

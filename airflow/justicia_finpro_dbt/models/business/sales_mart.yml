@@ -1,0 +1,23 @@
+
+version: 2
+
+models:
+  - name: sales_mart
+    description: "Sales mart table combining product and order data"
+    columns:
+      - name : order_date_WIB
+        description: "The order date in WIB timezone"
+      - name : country
+        description: "The country of the sales order"
+        tests:
+          - unique
+          - not_null
+      - name : category
+        description: "The category of the sold product"
+      - name: order_count
+        description: "The count of sales orders"
+      - name: quantity
+        description: "The total quantity of the sales order"
+      - name: amount
+        description: "The total amount of the sales order"
+    

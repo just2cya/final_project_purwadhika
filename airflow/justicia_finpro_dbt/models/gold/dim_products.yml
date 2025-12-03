@@ -1,0 +1,41 @@
+
+version: 2
+
+models:
+  - name: dim_products
+    description: "Dimensional table for products"
+    columns:
+      - name : product_pk
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: product_id
+        description: "The business key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: product_name
+        description: "The name of the product"
+      - name: product_category
+        description: "The category of the product"
+        tests:
+          - not_null
+          - accepted_values:
+              name: unexpected_category
+              values:
+                - Laptop
+                - AC
+                - Printer
+                - Fridge
+      - name: product_price
+        description: "The price of the product"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "product_price > 0"
+              config:
+                severity: warn
+            
+      - name: created_date
+        description: "The created date of the product"

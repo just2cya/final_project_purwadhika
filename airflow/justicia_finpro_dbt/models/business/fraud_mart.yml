@@ -1,0 +1,19 @@
+
+version: 2
+
+models:
+  - name: fraud_mart
+    description: "Fraud mart table from order data"
+    columns:
+      - name : country
+        description: "The country of the fraud order"
+        tests:
+          - unique
+          - not_null
+      - name: order_count
+        description: "The count of fraud orders"
+      - name: quantity
+        description: "The total quantity of the fake order"
+      - name: amount
+        description: "The total amount of the fake order"
+    

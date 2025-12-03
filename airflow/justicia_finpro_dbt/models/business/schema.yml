@@ -1,0 +1,8 @@
+sources:
+  - name: justicia_finpro_gold
+    database: jcdeah-006
+    schema: justicia_finpro
+    tables:
+      - name: dim_users
+      - name: dim_products
+      - name: fact_orders
